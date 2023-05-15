@@ -20,6 +20,18 @@ const UserPageUsingSSG: React.FC<UserPageProps> = ({ user }) => {
   );
 };
 
+export const getStaticPaths: GetStaticPaths = async () => {
+  const allUserIds = await UserService.fetchAllUserIds();
+  const paths = generateStaticPathListFromParamsArray(allUserIds, "id");
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export default UserPageUsingSSG;
+
 export const getStaticProps: GetStaticProps<{
   user: User;
 }> = async ({ params }) => {
@@ -32,15 +44,3 @@ export const getStaticProps: GetStaticProps<{
     },
   };
 };
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const allUserIds = await UserService.fetchAllUserIds();
-  const paths = generateStaticPathListFromParamsArray(allUserIds, "id");
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export default UserPageUsingSSG;
