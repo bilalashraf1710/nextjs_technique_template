@@ -10,7 +10,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <p>next app</p>
+        <div>
+          <h3>Data fetching examples for displaying all users</h3>
+        </div>
+        <hr />
+        <br />
+        <p>
+          To See Client-Side Rendering, <a href="/csr/users">click here</a>
+        </p>
+        <p>
+          To See Server-Side Rendering, <a href="/ssr/users">click here</a>
+        </p>
+        <p>
+          To See Static-Site Generation, <a href="/ssg/users">click here</a>
+        </p>
+        <p>
+          To See Incremental-Static Regeneration,{" "}
+          <a href="/isr/users">click here</a>
+        </p>
       </div>
     </>
   );
