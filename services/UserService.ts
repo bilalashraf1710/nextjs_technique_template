@@ -1,3 +1,4 @@
+import { extractValuesForKeyFormObjectArray } from "@/shared/helpers";
 import HttpClient from "./HttpClient";
 
 enum UserEndpoints {
@@ -15,6 +16,11 @@ class UserService extends HttpClient {
     const userByIdPath = UserEndpoints.FETCH_USER.replace(":id", id);
     const user = await this.get(userByIdPath);
     return user;
+  }
+
+  static async fetchAllUserIds() {
+    const users = await this.get(UserEndpoints.FETCH_USERS);
+    return extractValuesForKeyFormObjectArray(users, "id");
   }
 }
 

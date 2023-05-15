@@ -1,7 +1,7 @@
 import { User } from "@/shared/types/User";
 import React from "react";
 
-const UserRow: React.FC<User> = ({ name, jobTitle }) => {
+const User: React.FC<User> = ({ name, jobTitle }) => {
   return (
     <div>
       <p>name: {name}</p>
@@ -11,4 +11,4 @@ const UserRow: React.FC<User> = ({ name, jobTitle }) => {
   );
 };
 
-export default UserRow;
+export default User;

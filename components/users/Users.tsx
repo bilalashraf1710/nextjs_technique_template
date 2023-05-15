@@ -1,16 +1,16 @@
-import { User } from "@/shared/types/User";
+import { User as UserType } from "@/shared/types/User";
 import React from "react";
-import UserRow from "./UserRow";
+import User from "./User";
 
 interface UsersProps {
-  users: Array<User>;
+  users: Array<UserType>;
 }
 
 const Users: React.FC<UsersProps> = ({ users }) => {
   return (
     <div>
       {users.map((user) => {
-        return <UserRow {...user} key={user.id} />;
+        return <User {...user} key={user.id} />;
       })}
     </div>
   );
