@@ -2,14 +2,18 @@ import { User } from "../shared/types/User";
 
 export interface UserInterface {
   users: Array<User>;
-  createUser: (newUser: User) => void;
-  updateUser: (newUser: User) => void;
-  deleteUser: (id: string) => void;
+  createUser: (newUser: User) => Promise<void>;
+  updateUser: (newUser: User) => Promise<void>;
+  deleteUser: (id: string) => Promise<void>;
+  getUserById: (id: string) => Promise<User>;
 }
 
 export const defaultUserContext: UserInterface = {
   users: [],
-  createUser: (newUser: User) => {},
-  updateUser: (updatedUser: User) => {},
-  deleteUser: (id: string) => {},
+  createUser: async (newUser: User) => {},
+  updateUser: async (updatedUser: User) => {},
+  deleteUser: async (id: string) => {},
+  getUserById: async (id: string) => {
+    return {} as User;
+  },
 };

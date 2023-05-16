@@ -35,7 +35,7 @@ class HttpClient {
     const request = await fetch(`${API_ENDPOINT}${resourcePath}`, {
       method: HttpRequestMethods.PATCH,
       headers: headerConfig,
-      body,
+      body: JSON.stringify(body),
     });
     const responseObject = await request.json();
     return responseObject;

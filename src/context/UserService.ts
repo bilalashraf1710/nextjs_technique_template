@@ -16,14 +16,34 @@ export const deleteUserService = async (id: string) => {
   });
 };
 
-export const createUserService = async (newUser: User) => {
+export const createUserService = async (user: User) => {
   const userCreateRequest = await fetch(
-    ApiRoutes.USER.replace(":id", newUser.id),
+    ApiRoutes.USER.replace(":id", user.id),
     {
       method: HttpRequestMethods.POST,
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(user),
     }
   );
-  const { user } = await userCreateRequest.json();
+  const { user: newUser } = await userCreateRequest.json();
+  return newUser as User;
+};
+
+export const updateUserService = async (user: User) => {
+  const userUpdateRequest = await fetch(
+    ApiRoutes.USER.replace(":id", user.id),
+    {
+      method: HttpRequestMethods.PATCH,
+      body: JSON.stringify(user),
+    }
+  );
+  const { user: updatedUser } = await userUpdateRequest.json();
+  return updatedUser as User;
+};
+
+export const getUserByIdService = async (id: string) => {
+  const userUpdateRequest = await fetch(ApiRoutes.USER.replace(":id", id), {
+    method: HttpRequestMethods.GET,
+  });
+  const { user } = await userUpdateRequest.json();
   return user as User;
 };

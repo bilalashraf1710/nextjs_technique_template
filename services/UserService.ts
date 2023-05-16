@@ -35,7 +35,7 @@ class UserService extends HttpClient {
   }
 
   static async updateUser(updatedUser: UserType) {
-    const updateUserByIdPath = UserEndpoints.DELETE_USER.replace(
+    const updateUserByIdPath = UserEndpoints.UPDATE_USER.replace(
       ":id",
       updatedUser.id
     );

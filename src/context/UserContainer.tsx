@@ -5,7 +5,9 @@ import { User } from "../shared/types/User";
 import {
   createUserService,
   deleteUserService,
+  getUserByIdService,
   loadUsersService,
+  updateUserService,
 } from "./UserService";
 
 interface UserContextContainerProps {
@@ -44,12 +46,30 @@ const UserContainer: FC<UserContextContainerProps> = ({ children }) => {
     }));
   };
 
+  const getUserById = async (id: string) => {
+    const user = await getUserByIdService(id);
+    return user;
+  };
+
+  const updateUser = async (updatedUser: User) => {
+    const user = await updateUserService(updatedUser);
+    const updatedUserList = state.users;
+    const updatedUserIndex = updatedUserList.findIndex((u) => u.id === user.id);
+    updatedUserList[updatedUserIndex] = user;
+    setState((prev) => ({
+      ...prev,
+      users: [...updatedUserList],
+    }));
+  };
+
   return (
     <UserProvider
       value={{
         ...state,
         createUser,
         deleteUser,
+        getUserById,
+        updateUser,
       }}
     >
       {children}
