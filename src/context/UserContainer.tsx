@@ -1,10 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { UserProvider } from "./UserContext";
 import { UserInterface, defaultUserContext } from "./UserInterface";
-import UserService from "@/services/UserService";
 import { User } from "../shared/types/User";
-import { ApiRoutes } from "../api/constants/ApiRoutes";
-import { HttpRequestMethods } from "../shared/constants";
 import {
   createUserService,
   deleteUserService,
