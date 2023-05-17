@@ -7,7 +7,7 @@ First, install node modules
 npm install
 ```
 
-Second, create account account on [http://mockapi.io](mockapi.io), create an .env file and add endpoint here as
+Second, create account account on [mockapi.io](https://mockapi.io), create an .env file and add endpoint here as
 ```
 NEXT_PUBLIC_API_ENDPOINT = "your-end-point-url"
 ```
