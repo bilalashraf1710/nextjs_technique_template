@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Note: You can also watch video to setup and run project.
+
 First, install node modules
 ```
 npm install
